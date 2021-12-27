@@ -15,6 +15,7 @@
 		9107DA38277A76C40012C857 /* BoardListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9107DA37277A76C40012C857 /* BoardListView.swift */; };
 		9107DA3A277A7BF60012C857 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9107DA39277A7BF60012C857 /* CardView.swift */; };
 		9107DA3D277A7F600012C857 /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = 9107DA3C277A7F600012C857 /* Introspect */; };
+		9107DA3F277A86160012C857 /* View+AlertTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9107DA3E277A86160012C857 /* View+AlertTextField.swift */; };
 		91EDCF6627753DB30089EFCA /* mTrelloApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EDCF6527753DB30089EFCA /* mTrelloApp.swift */; };
 		91EDCF6A27753DB40089EFCA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91EDCF6927753DB40089EFCA /* Assets.xcassets */; };
 		91EDCF6D27753DB40089EFCA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91EDCF6C27753DB40089EFCA /* Preview Assets.xcassets */; };
@@ -29,6 +30,7 @@
 		9107DA35277A70A00012C857 /* BoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
 		9107DA37277A76C40012C857 /* BoardListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardListView.swift; sourceTree = "<group>"; };
 		9107DA39277A7BF60012C857 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		9107DA3E277A86160012C857 /* View+AlertTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+AlertTextField.swift"; sourceTree = "<group>"; };
 		91EDCF6227753DB30089EFCA /* mTrello.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mTrello.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		91EDCF6527753DB30089EFCA /* mTrelloApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mTrelloApp.swift; sourceTree = "<group>"; };
 		91EDCF6927753DB40089EFCA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -64,6 +66,7 @@
 				9107DA35277A70A00012C857 /* BoardView.swift */,
 				9107DA37277A76C40012C857 /* BoardListView.swift */,
 				9107DA39277A7BF60012C857 /* CardView.swift */,
+				9107DA3E277A86160012C857 /* View+AlertTextField.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -181,6 +184,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9107DA3F277A86160012C857 /* View+AlertTextField.swift in Sources */,
 				9107DA36277A70A00012C857 /* BoardView.swift in Sources */,
 				9107DA33277A676C0012C857 /* Board+Stub.swift in Sources */,
 				9107DA2C277A48050012C857 /* Card.swift in Sources */,
