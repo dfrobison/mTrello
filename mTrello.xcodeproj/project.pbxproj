@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9107DA2C277A48050012C857 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9107DA2B277A48050012C857 /* Card.swift */; };
+		9107DA2E277A48FC0012C857 /* BoardList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9107DA2D277A48FC0012C857 /* BoardList.swift */; };
+		9107DA30277A4BF00012C857 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9107DA2F277A4BF00012C857 /* Board.swift */; };
 		91EDCF6627753DB30089EFCA /* mTrelloApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EDCF6527753DB30089EFCA /* mTrelloApp.swift */; };
 		91EDCF6827753DB30089EFCA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EDCF6727753DB30089EFCA /* ContentView.swift */; };
 		91EDCF6A27753DB40089EFCA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91EDCF6927753DB40089EFCA /* Assets.xcassets */; };
@@ -14,6 +17,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9107DA2B277A48050012C857 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		9107DA2D277A48FC0012C857 /* BoardList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardList.swift; sourceTree = "<group>"; };
+		9107DA2F277A4BF00012C857 /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 		91EDCF6227753DB30089EFCA /* mTrello.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mTrello.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		91EDCF6527753DB30089EFCA /* mTrelloApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mTrelloApp.swift; sourceTree = "<group>"; };
 		91EDCF6727753DB30089EFCA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -32,6 +38,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9107DA2A277A47DB0012C857 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9107DA2B277A48050012C857 /* Card.swift */,
+				9107DA2D277A48FC0012C857 /* BoardList.swift */,
+				9107DA2F277A4BF00012C857 /* Board.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		91EDCF5927753DB30089EFCA = {
 			isa = PBXGroup;
 			children = (
@@ -51,6 +67,7 @@
 		91EDCF6427753DB30089EFCA /* mTrello */ = {
 			isa = PBXGroup;
 			children = (
+				9107DA2A277A47DB0012C857 /* Models */,
 				91EDCF6527753DB30089EFCA /* mTrelloApp.swift */,
 				91EDCF6727753DB30089EFCA /* ContentView.swift */,
 				91EDCF6927753DB40089EFCA /* Assets.xcassets */,
@@ -138,6 +155,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				91EDCF6827753DB30089EFCA /* ContentView.swift in Sources */,
+				9107DA2C277A48050012C857 /* Card.swift in Sources */,
+				9107DA30277A4BF00012C857 /* Board.swift in Sources */,
+				9107DA2E277A48FC0012C857 /* BoardList.swift in Sources */,
 				91EDCF6627753DB30089EFCA /* mTrelloApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
