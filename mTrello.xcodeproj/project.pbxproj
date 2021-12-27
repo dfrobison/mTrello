@@ -14,6 +14,7 @@
 		9107DA36277A70A00012C857 /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9107DA35277A70A00012C857 /* BoardView.swift */; };
 		9107DA38277A76C40012C857 /* BoardListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9107DA37277A76C40012C857 /* BoardListView.swift */; };
 		9107DA3A277A7BF60012C857 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9107DA39277A7BF60012C857 /* CardView.swift */; };
+		9107DA3D277A7F600012C857 /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = 9107DA3C277A7F600012C857 /* Introspect */; };
 		91EDCF6627753DB30089EFCA /* mTrelloApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EDCF6527753DB30089EFCA /* mTrelloApp.swift */; };
 		91EDCF6A27753DB40089EFCA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91EDCF6927753DB40089EFCA /* Assets.xcassets */; };
 		91EDCF6D27753DB40089EFCA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91EDCF6C27753DB40089EFCA /* Preview Assets.xcassets */; };
@@ -39,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9107DA3D277A7F600012C857 /* Introspect in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,6 +121,9 @@
 			dependencies = (
 			);
 			name = mTrello;
+			packageProductDependencies = (
+				9107DA3C277A7F600012C857 /* Introspect */,
+			);
 			productName = mTrello;
 			productReference = 91EDCF6227753DB30089EFCA /* mTrello.app */;
 			productType = "com.apple.product-type.application";
@@ -147,6 +152,9 @@
 				Base,
 			);
 			mainGroup = 91EDCF5927753DB30089EFCA;
+			packageReferences = (
+				9107DA3B277A7F600012C857 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
+			);
 			productRefGroup = 91EDCF6327753DB30089EFCA /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -385,6 +393,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		9107DA3B277A7F600012C857 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/siteline/SwiftUI-Introspect.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9107DA3C277A7F600012C857 /* Introspect */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9107DA3B277A7F600012C857 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */;
+			productName = Introspect;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 91EDCF5A27753DB30089EFCA /* Project object */;
 }
