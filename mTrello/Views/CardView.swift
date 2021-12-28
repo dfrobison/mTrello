@@ -44,7 +44,7 @@ struct CardView: View {
 }
 
 struct CardView_Previews: PreviewProvider {
-    @StateObject static var boardList = Board.stub.boardLists[0]
+    @StateObject static var boardList = Board.stub.boardList[0]
     
     static var previews: some View {
         CardView(boardList: boardList, card: boardList.cards[0])

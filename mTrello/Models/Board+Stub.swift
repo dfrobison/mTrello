@@ -34,7 +34,7 @@ extension Board {
         
         let doneBoardList = BoardList(name: "Done", boardId: board.id)
         
-        board.boardLists = [
+        board.boardList = [
         backlogBoardList,
         todoBoardList,
         doneBoardList]

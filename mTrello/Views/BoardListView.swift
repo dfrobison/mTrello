@@ -107,7 +107,7 @@ struct BoardListView: View {
 struct BoardListView_Previews: PreviewProvider {
     @StateObject static var board = Board.stub
     static var previews: some View {
-        BoardListView(board: board, boardList: board.boardLists[0], listHeight: 512)
+        BoardListView(board: board, boardList: board.boardList[0], listHeight: 512)
             .previewLayout(.sizeThatFits)
             .frame(width: 300, height: 512)
     }
