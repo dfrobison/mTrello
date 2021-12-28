@@ -9,7 +9,7 @@ import Foundation
 
 class Card: NSObject, ObservableObject, Identifiable, Codable {
     private(set) var id = UUID()
-    private var boardListId: UUID
+    private(set) var boardListId: UUID
     
     @Published var content: String
     
@@ -38,6 +38,10 @@ class Card: NSObject, ObservableObject, Identifiable, Codable {
         try container.encode(id, forKey: .id)
         try container.encode(boardListId, forKey: .boardListId)
         try container.encode(content, forKey: .content)
+    }
+    
+    func moveToBoardList(_ id: UUID) {
+        boardListId = id
     }
 }
 

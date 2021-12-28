@@ -18,10 +18,11 @@ struct BoardView: View {
                 LazyHStack(alignment: .top, spacing: 24) {
                     ForEach(board.boardLists) { boardList in
                         BoardListView(board: board, boardList: boardList)
+                            .onDrop(of: [Card.typeIdentifier], delegate: BoardDropDelegate(board: board, boardList: boardList))
                     }
                     
                     Button("+ Add list") {
-                        
+                        handleOnAddList()
                     }
                     .frame(maxWidth: .infinity)
                     .padding()
@@ -38,9 +39,18 @@ struct BoardView: View {
         }
         .navigationViewStyle(.stack)
     }
+    
+    private func handleOnAddList() {
+        presentAlertTextField(title: "Add list") { text in
+            guard let text = text, !text.isEmpty else { return }
+            
+            board.addNewBoardListWithName(text)
+        }
+    }
 }
 
 struct BoardView_Previews: PreviewProvider {
+    @StateObject static var board = Board.stub
     static var previews: some View {
         BoardView()
             .previewDevice(PreviewDevice(rawValue: "iPad Pro (12.9-inch) (5th generation"))
