@@ -11,6 +11,8 @@ class Card: NSObject, ObservableObject, Identifiable, Codable {
     private(set) var id = UUID()
     private(set) var boardListId: UUID
     
+    var isFocused = false
+    
     @Published var content: String
     
     enum CodingKeys: String, CodingKey {
@@ -22,6 +24,14 @@ class Card: NSObject, ObservableObject, Identifiable, Codable {
         self.boardListId = boardListId
         super.init()
     }
+    
+    init(boardListId: UUID) {
+        self.isFocused = true
+        self.content = ""
+        self.boardListId = boardListId
+        super.init()
+    }
+
     
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)

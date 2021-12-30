@@ -18,7 +18,6 @@ class BoardList: NSObject, ObservableObject, Identifiable, Codable {
         case id, boardId, name, cards
     }
 
-    
     init(name: String, cards: [Card] = [], boardId: UUID) {
         self.name = name
         self.boardId = boardId
@@ -67,11 +66,11 @@ extension BoardList: NSItemProviderWriting {
     func cardIndex(id: UUID) -> Int? {
         cards.firstIndex {$0.id == id}
     }
-    
-    func addNewCardWithContent(_ content: String) {
-        cards.append(Card(content: content, boardListId: id))
+        
+    func addNewCard() {
+        cards.append(Card(boardListId: id))
     }
-    
+
     func removeCard(_ card: Card) {
         guard let cardIndex = cardIndex(id: card.id) else {return}
         cards.remove(at: cardIndex)

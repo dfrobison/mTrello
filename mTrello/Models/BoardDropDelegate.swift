@@ -37,7 +37,7 @@ struct BoardDropDelegate: DropDelegate {
     
     func dropUpdated(info: DropInfo) -> DropProposal? {
         if !cardItemProviders(info: info).isEmpty {
-            return DropProposal(operation: .copy)
+            return DropProposal(operation: .move)
         } else if !boardListItemProviders(info: info).isEmpty {
             return DropProposal(operation: .move)
         }

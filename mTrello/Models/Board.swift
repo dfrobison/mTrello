@@ -17,7 +17,6 @@ class Board: ObservableObject, Identifiable, Codable {
         case id, boardList, name
     }
 
-    
     init(name: String, boardList: [BoardList] = []) {
         self.name = name
         self.boardList = boardList
@@ -48,6 +47,18 @@ class Board: ObservableObject, Identifiable, Codable {
         boardList.cards.insert(card, at: index)
         card.moveToBoardList(boardList.id)
         self.boardList[sourceBoardLIstIndex].cards.remove(at: sourceCardIndex)
+    }
+    
+    func resetFocus() {
+        boardList.forEach { bl in
+            bl.cards.forEach { card in
+                if card.isFocused {
+                    if card.content.isEmpty {
+                        bl.removeCard(card)
+                    }
+                }
+            }
+        }
     }
     
     func addNewBoardListWithName(_ name: String) {

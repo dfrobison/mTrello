@@ -19,6 +19,7 @@ struct BoardListView: View {
             listView
                 .listStyle(.plain)
                 .frame(maxHeight: listHeight)
+            
             Button("+ Add Card") {
                 handleAddCard()
             }
@@ -45,7 +46,7 @@ struct BoardListView: View {
             .listRowSeparator(.hidden)
             .listRowInsets(.init(top: 4, leading: 8, bottom: 4, trailing: 8))
             .listRowBackground(Color.clear)
-            .introspectTableView {listHeight = $0.contentSize.height}
+            .introspectTableView { listHeight = $0.contentSize.height }
         }
     }
     
@@ -68,8 +69,8 @@ struct BoardListView: View {
             
             boardList.name = text
         }
-        
     }
+    
     private var headerView: some View {
         HStack(alignment: .top) {
             Text(boardList.name)
@@ -94,13 +95,8 @@ struct BoardListView: View {
     }
     
     private func handleAddCard() {
-        presentAlertTextField(title: "Add card to \(boardList.name)") { text in
-            guard let text = text, !text.isEmpty else {
-                return
-            }
-            
-            boardList.addNewCardWithContent(text)
-        }
+        board.resetFocus()
+        boardList.addNewCard()
     }
 }
 
