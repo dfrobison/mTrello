@@ -12,25 +12,98 @@ struct BoardListView: View {
     @ObservedObject var board: Board
     @StateObject var boardList: BoardList
     @State var listHeight: CGFloat = 0
+    @State var cardAdded = false
+    @State var shoudScroll = false
+    @State var cardContent: String = ""
+    @FocusState private var isFocused: Bool
+    let textFieldHeight = UIFont.preferredFont(forTextStyle: .body).lineHeight * 4 // This is a hacked to fix the height of the TextEdit field so that the list height can be calculated correctly
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 16) {
-            headerView
-            listView
-                .listStyle(.plain)
-                .frame(maxHeight: listHeight)
-            
-            Button("+ Add Card") {
-                handleAddCard()
+        ScrollViewReader { proxy in
+            VStack(alignment: .leading, spacing: 16) {
+                headerView
+                listView
+                    .listStyle(.plain)
+                    .frame(maxHeight: listHeight)
+                
+                if cardAdded {
+                    TextEditor(text: Binding(
+                        get: {
+                            return cardContent
+                        },
+                        set: { value in
+                            var newValue = value
+                            if value.contains("\n") {
+                                newValue = value.replacingOccurrences(of: "\n", with: "")
+                                cardContent = newValue
+                                if !cardContent.isEmpty {
+                                    boardList.addNewCardWithContent(cardContent)
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                                    proxy.scrollTo(boardList.cards.last!.id)
+                                    }
+                                } else {
+                                    cardAdded = false
+                                }
+                    
+                                newValue = ""
+                            }
+                            cardContent = newValue
+                        }
+                    ))
+                    .focused($isFocused)
+                    .onAppear(perform: {
+                        print("OnAppear: Boardlist = \(boardList.name) Focus = \(isFocused)")
+                        DispatchQueue.main.async {
+                            isFocused = true
+                        }
+                        
+                        
+                    })
+                    .onChange(of: isFocused) { isFocused in
+                        print("OnChange: Boardlist = \(boardList.name) Focus = \(isFocused)")
+                        if !isFocused && !cardContent.isEmpty {
+                            boardList.addNewCardWithContent(cardContent)
+                            cardContent = ""
+                        }
+                        
+                        if !isFocused {
+                            cardAdded = false
+                        }
+                    }
+                    .frame(maxWidth: .infinity, minHeight: textFieldHeight , maxHeight: textFieldHeight, alignment: .leading)
+                    .cornerRadius(4)
+                    .shadow(radius: 1, y: 1)
+
+                }
+                
+                
+                HStack {
+                Button("+ Add Card") {
+                  //  handleAddCard()
+                    cardAdded = true
+                    isFocused = true
+                    DispatchQueue.main.asyncAfter(deadline: .now()+0.5) {
+                      //  isFocused = true
+                    }
+                    
+                }
+                .padding(.horizontal)
+                .frame(maxWidth: .infinity, alignment: .center)
+                    
+                    Spacer()
+                    
+                    Button("Last") {
+                        
+                        proxy.scrollTo(boardList.cards.last!.id, anchor: .bottom)
+                    }
+                }
             }
-            .padding(.horizontal)
-            .frame(maxWidth: .infinity, alignment: .center)
+            .padding(.vertical)
+            .background(boardListBackgroundColor)
+            .frame(width: 300)
+            .cornerRadius(8)
+            .foregroundColor(.black)
         }
-        .padding(.vertical)
-        .background(boardListBackgroundColor)
-        .frame(width: 300)
-        .cornerRadius(8)
-        .foregroundColor(.black)
     }
     
     private var listView: some View {
@@ -94,16 +167,16 @@ struct BoardListView: View {
         .padding(.horizontal)
     }
     
-    private func handleAddCard() {
+    private func handleAddCard() -> UUID {
         board.resetFocus()
-        boardList.addNewCard()
+        return boardList.addNewCard()
     }
 }
 
 struct BoardListView_Previews: PreviewProvider {
     @StateObject static var board = Board.stub
     static var previews: some View {
-        BoardListView(board: board, boardList: board.boardList[0], listHeight: 512)
+        BoardListView(board: board, boardList: board.boardList[0], listHeight: 512, cardContent: "help")
             .previewLayout(.sizeThatFits)
             .frame(width: 300, height: 512)
     }

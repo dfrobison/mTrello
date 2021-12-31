@@ -46,11 +46,15 @@ struct CardView: View {
                     card.content = newValue
                 }
             ))
-            .foregroundColor(card.content.isEmpty ? .gray : .black)
             .focused($isFocused)
             .onAppear(perform: {isFocused = true})
             .onChange(of: isFocused) { isFocused in
                 card.isFocused = isFocused
+                if !isFocused && card.content.isEmpty{
+                    boardList.removeCard(card)
+                } else {
+                    card.isFocused = isFocused
+                }
             }
             .frame(maxWidth: .infinity, minHeight: textFieldHeight , maxHeight: textFieldHeight, alignment: .leading)
             .cornerRadius(4)

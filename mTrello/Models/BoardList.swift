@@ -66,9 +66,15 @@ extension BoardList: NSItemProviderWriting {
     func cardIndex(id: UUID) -> Int? {
         cards.firstIndex {$0.id == id}
     }
+    
+    func addNewCardWithContent(_ context: String) {
+        cards.append(Card(content: context, boardListId: id))
+    }
+
         
-    func addNewCard() {
+    func addNewCard() -> UUID {
         cards.append(Card(boardListId: id))
+        return cards.last!.id
     }
 
     func removeCard(_ card: Card) {
